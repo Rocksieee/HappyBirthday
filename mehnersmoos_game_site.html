@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mehnersmoos Secret Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    .hidden {
+      display: none;
+    }
+    #gameContainer {
+      margin-top: 20px;
+    }
+    button {
+      background-color: #e60000;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    #imageReveal img {
+      max-width: 100%;
+      border: 5px solid #fff;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mehnersmoos & Friends – Secret Challenge</h1>
+  <p>Beantworte die Frage und enthülle das geheime Bild!</p>
+
+  <div id="gameContainer">
+    <p>Wie heißt die Band, die am 2. August 2025 Frankfurt zerlegt?</p>
+    <input type="text" id="answer" placeholder="Deine Antwort hier...">
+    <br><br>
+    <button onclick="checkAnswer()">Antwort prüfen</button>
+  </div>
+
+  <div id="imageReveal" class="hidden">
+    <h2>YES! Du hast es rausgefunden!</h2>
+    <img src="/mnt/data/csm_Mehnersmoos_Friends2025_FEED_quadratisch_6334ed9e2b.jpg" alt="Mehnersmoos Konzert">
+    <p>Am 2. August 2025 – Myticket Jahrhunderthalle – Frankfurt A. M.</p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById("answer").value.trim().toLowerCase();
+      if (input === "mehnersmoos") {
+        document.getElementById("gameContainer").classList.add("hidden");
+        document.getElementById("imageReveal").classList.remove("hidden");
+      } else {
+        alert("Falsch! Versuch's nochmal. Tipp: Sie haben 'Friends' dabei.");
+      }
+    }
+  </script>
+</body>
+</html>
